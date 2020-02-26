@@ -26,6 +26,11 @@ pipeline {
             }
           }
         }
+        stage('sanit check') {
+          steps {
+            input 'Everything is ok?'
+          }
+        }
         stage('test') {
           steps {
             sh 'echo "Fail!";exit 1'
