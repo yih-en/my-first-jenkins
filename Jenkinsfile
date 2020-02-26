@@ -1,12 +1,17 @@
 pipeline {
     agent { docker { image 'maven:3.3.3' } }
+    environment {
+      DISABLE_AUTH='true'
+      DB_ENGINE='mysql'
+    }
     stages {
         stage('build') {
             steps {
                 sh 'mvn --version'
                 sh 'echo "Hello World"'
                 sh '''
-                  echo "Multiline shell"
+                  echo "Database engine is ${DB_ENGINE}"
+                  echo "AUTH is ${DISABLE_AUTH}"
                   ls -lah
                 '''
             }
