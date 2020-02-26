@@ -14,10 +14,10 @@ pipeline {
         stage('deploy') {
           steps {
             retry(3) {
-              sh './deploy.sh'
+              sh './scripts/deploy.sh'
             }
             timeout(time: 1, unit: 'MINUTES') {
-              sh './health-check.sh'
+              sh './scripts/health-check.sh'
             }
           }
         }

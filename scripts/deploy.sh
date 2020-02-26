@@ -1,5 +1,5 @@
 #!/bin/sh
 
 #This is a comment
-$MY_MESSAGE = "Hello World"
+MY_MESSAGE="Hello World"
 echo $MY_MESSAGE
